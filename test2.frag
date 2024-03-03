@@ -8,9 +8,9 @@ uniform vec2 u_resolution;
 vec3 palette( float t ) 
 {
     vec3 a = vec3(0.5, 0.5, 0.5);
-    vec3 b = vec3(0.5, 0.5, 0.5);
-    vec3 c = vec3(1.0, 1.0, 1.0);
-    vec3 d = vec3(0.263,0.416,0.557);
+    vec3 b = vec3(0.7059, 0.2314, 0.6039);
+    vec3 c = vec3(0.0941, 0.0745, 0.2784);
+    vec3 d = vec3(0.1686, 0.4549, 0.7216);
 
     return a + b*cos( 6.28318*(c*t+d) );
 }
@@ -29,7 +29,7 @@ void main()
 
         vec3 col = palette(length(uv0) + i*0.4 + u_time*0.4);
 
-    d= sin(d*8. + u_time)/8.;
+    d = sin(d*25. + u_time / 2.)/8.;
     d = abs(d);
 
     d = pow(0.01 / d, 1.2);

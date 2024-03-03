@@ -35,7 +35,7 @@ float menger(vec3 p)
     float cd = crosscube(p, size);
     d=max(d,-cd);
 
-    for(int i = 0; i < 5; i++)
+    for(int i = 0; i < 9; i++)
     {
         size *= 1./3.;
         float m = size.x*2.;
@@ -60,7 +60,8 @@ void main() {
 
     vec2 p = (gl_FragCoord.xy *2. - u_resolution.xy) / min(u_resolution.x,u_resolution.y);
 
-    vec3 cp = vec3(0.,0.,(3.*(abs(sin(u_time/10.))))+2.);
+    //vec3 cp = vec3(0.,0.,(1.*(abs(sin(u_time/10.))))+3.);
+    vec3 cp = vec3(0.,0.,3.);
     vec3 cd = vec3(0.,0.,-1.);
     vec3 cu = vec3(0.,1.,0.);
     vec3 cs = cross(cd, cu);
@@ -90,7 +91,7 @@ void main() {
        } 
     }
 
-    col = vec3(1.)*me*0.01*col2;
+    col = vec3(1.)*me*0.03*col2;
     
     gl_FragColor = vec4(col, 1.);
 }
